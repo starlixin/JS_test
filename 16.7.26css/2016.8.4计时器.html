@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="ss()">
+<input id="pid">
+
+</input>
+<script>
+//    window.onload=function() {
+//        var myTime = setInterval(function () {
+//            getTime();
+//        }, 1000)
+//        function getTime() {
+//            var c = new data();
+//            var d = c.toLocaleTimeString();
+//            document.getElementById("pid").innerHTML =  d;
+//        }
+//        setTimeout("getTime()", 1000);
+//    }
+    var myTime=setInterval(function(){
+        getTime();
+    },1000);
+    function getTime(){
+        var c= new Date();
+        var d= c.toLocaleTimeString();
+        document.getElementById("pid").value=d;
+    }
+
+//    var v= setTimeout(function(){
+//             ss() ;
+//            }, 3000);
+    function ss(){
+        var a=document.getElementById("pid");
+        alert("123")
+        win= setTimeout(function(){ss();},1000);
+    }
+</script>
+</body>
+</html>

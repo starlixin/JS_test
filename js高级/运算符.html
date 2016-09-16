@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>运算符-delete</title>
+</head>
+<body>
+
+<script>
+    var obj={};
+    Object.defineProperty(obj,'x',{
+        configurable:false,
+        value:1
+    });
+    delete  obj.x;
+    obj.x;
+    console.log(obj.x);
+</script>
+</body>
+</html>

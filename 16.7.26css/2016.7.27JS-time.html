@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body  onload="showtime()">
+<form  name="clock" onSubmit="0">
+    <input type="text" name="show"   size="10" style="background-color: lightyellow;border-width: 3px;"/>
+</form>
+
+<script type="text/javascript" language="JavaScript">
+    function showtime() {
+    var now_time = new Date();
+    var hours = now_time.getHours();
+    var minutes = now_time.getMinutes();
+    var seconds = now_time.getSeconds();
+    var timer = "" + ((hours > 12) ? hours - 12 : hours);
+    timer += ((minutes < 10) ? ":0" : ":") + minutes;
+    timer += ((seconds < 10) ? ":0" : ":") + seconds;
+    timer += "" + ((hours > 12) ? "pm" : "am");
+    document.clock.show.value = timer;
+//        alert(timer);
+    setTimeout("showtime()", 1000);
+
+}
+</script>
+</body>
+</html>
