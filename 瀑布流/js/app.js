@@ -8,7 +8,7 @@ window.onload =function() {
         {"src": "5.jpg"}, {"src": "6.jpg"}]
     }
     window.onscroll = function () {
-        //¼àÌı¹ö¶¯Ìõ
+        //ç›‘å¬æ»šåŠ¨æ¡
         if (checkFlag()) {
             var cparent = document.getElementById("container");
             for (var i = 0; i < imgData.data.length; i++) {
@@ -39,15 +39,15 @@ function checkFlag(){
     }
 }
 function imgLocation(parent,content){
-    //½«ParentÏÂµÄËùÓĞcontentÈ«²¿È¡³ö
+    //å°†Parentä¸‹çš„æ‰€æœ‰contentå…¨éƒ¨å–å‡º
     var cparent=document.getElementById(parent);
     var ccontent=getChildElement(cparent,content);
     var imgWidth=ccontent[0].offsetWidth;
-    //»ñµÃÃ¿¸öÍ¼Æ¬µÄ¿í¶È£¬ÒòÎªËùÓĞ¿í¶ÈÏàµÈ£¬ËùÒÔÈ¡µÚÒ»¸ö¼´¿É
+    //è·å¾—æ¯ä¸ªå›¾ç‰‡çš„å®½åº¦ï¼Œå› ä¸ºæ‰€æœ‰å®½åº¦ç›¸ç­‰ï¼Œæ‰€ä»¥å–ç¬¬ä¸€ä¸ªå³å¯
     var num=Math.floor(document.documentElement.clientWidth/imgWidth);
-    //È·¶¨Ã¿ÅÅÍ¼Æ¬µÄ¸öÊı
-    cparent.style.cssText="width:"+imgWidth*num+"px;margin:0,auto";
-    //¹Ì¶¨ÍøÒ³µÄÑùÊ½£¬²¢¾ÓÖĞ
+    //ç¡®å®šæ¯æ’å›¾ç‰‡çš„ä¸ªæ•°
+    cparent.style.cssText="width:"+imgWidth*num+"px;margin:0 auto";
+    //å›ºå®šç½‘é¡µçš„æ ·å¼ï¼Œå¹¶å±…ä¸­
     //console.log(ccontent);
     var BoxHeightArr=[];
     for(var i=0;i<ccontent.length;i++){
@@ -57,30 +57,30 @@ function imgLocation(parent,content){
          }
         else{
             var minhieght = Math.min.apply(null,BoxHeightArr);
-            //ÕÒµ½×îĞ¡¸ß¶È
+            //æ‰¾åˆ°æœ€å°é«˜åº¦
             var minIndex=getminheightLocation(BoxHeightArr,minhieght);
-            //È·¶¨ÊÇµÚ¼¸¸ö
+            //ç¡®å®šæ˜¯ç¬¬å‡ ä¸ª
             //console.log(minhieght);
             ccontent[i].style.position=("absolute");
             ccontent[i].style.top=minhieght+"px";
             ccontent[i].style.left=ccontent[minIndex].offsetLeft+"px";
-            //È·¶¨Æä×ó±ßµÄ¾àÀë£¬¼´Õâ¸öÍ¼Æ¬µ½×ó±ßµÄ¾àÀë£»Ò²¿ÉÒÔÓÃÕâÊÇµÚ¼¸¸öÍ¼Æ¬È¥³ËÒÔ¿í¶È£¬µ«×¢Òâ¼ÓÉÏPadding
+            //ç¡®å®šå…¶å·¦è¾¹çš„è·ç¦»ï¼Œå³è¿™ä¸ªå›¾ç‰‡åˆ°å·¦è¾¹çš„è·ç¦»ï¼›ä¹Ÿå¯ä»¥ç”¨è¿™æ˜¯ç¬¬å‡ ä¸ªå›¾ç‰‡å»ä¹˜ä»¥å®½åº¦ï¼Œä½†æ³¨æ„åŠ ä¸ŠPadding
              BoxHeightArr[minIndex]=BoxHeightArr[minIndex]+ccontent[i].offsetHeight;
-            //Ë¢ĞÂ³öĞÂµÄ¸ß¶È
+            //åˆ·æ–°å‡ºæ–°çš„é«˜åº¦
         }
     }
 }
 function getminheightLocation(BoxheightArr,minHeight){
-    //±éÀúºĞ×Ó¸ß¶ÈÕâ¸öÊı×é£¬È¡³ö×îĞ¡£¬·µ»Øi
+    //éå†ç›’å­é«˜åº¦è¿™ä¸ªæ•°ç»„ï¼Œå–å‡ºæœ€å°ï¼Œè¿”å›i
     for( var i in BoxheightArr){
-        //±éÀúÊı×é
+        //éå†æ•°ç»„
         if(BoxheightArr[i]==minHeight){
             return i;
         }
     }
 }
 function getChildElement(parent,content){
-    //ÔÚparentÖĞÈ¡³öÈ«²¿£¬µ±Ãû×ÖµÈÓÚcontentÊ±£¬´æÈëÊı×éallcontent[],²¢·µ»ØÊı×é
+    //åœ¨parentä¸­å–å‡ºå…¨éƒ¨ï¼Œå½“åå­—ç­‰äºcontentæ—¶ï¼Œå­˜å…¥æ•°ç»„allcontent[],å¹¶è¿”å›æ•°ç»„
     var contentArr=[];
     var allcontent=parent.getElementsByTagName("*");
     for( var i=0;i<allcontent.length;i++){
