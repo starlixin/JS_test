@@ -46,7 +46,7 @@ function imgLocation(parent,content){
     //获得每个图片的宽度，因为所有宽度相等，所以取第一个即可
     var num=Math.floor(document.documentElement.clientWidth/imgWidth);
     //确定每排图片的个数
-    cparent.style.cssText="width:"+imgWidth*num+"px;margin:0,auto";
+    cparent.style.cssText="width:"+imgWidth*num+"px;margin:0 auto";
     //固定网页的样式，并居中
     //console.log(ccontent);
     var BoxHeightArr=[];
